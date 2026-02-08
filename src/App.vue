@@ -1,30 +1,27 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app">
+    <header class="top">
+      <div class="brand">NEXUS Console</div>
+      <nav class="nav">
+        <RouterLink to="/">Dashboard</RouterLink>
+        <RouterLink to="/request">Request</RouterLink>
+        <RouterLink to="/runs">Runs</RouterLink>
+        <RouterLink to="/state">State</RouterLink>
+      </nav>
+    </header>
+
+    <main class="main">
+      <RouterView />
+    </main>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+.app { min-height: 100vh; background: #0b0f14; color: #e6edf3; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+.top { display:flex; gap:16px; align-items:center; padding:12px 16px; border-bottom:1px solid #1f2a37; }
+.brand { font-weight: 700; letter-spacing: 0.3px; }
+.nav { display:flex; gap:12px; }
+a { color:#9aa4af; text-decoration:none; padding:6px 10px; border-radius:8px; }
+a.router-link-active { color:#e6edf3; background:#111b2a; border:1px solid #253041; }
+.main { padding: 16px; }
 </style>
